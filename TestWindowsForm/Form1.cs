@@ -20,8 +20,6 @@ namespace TestWindowsForm
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = "C:\\";
-
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -29,10 +27,7 @@ namespace TestWindowsForm
                     string filePath = openFileDialog1.FileName;
                     var scanner = new AntiVirus.Scanner();
                     var result = scanner.ScanAndClean(filePath);
-                    //var result = scanner.ScanAndClean(@"C:\test.txt");
                     MessageBox.Show(result.ToString());
-                    //Console.WriteLine(result); // console output is "VirusNotFound".
-                    //Console.ReadLine();
                 }
                 catch (Exception ex)
                 {
